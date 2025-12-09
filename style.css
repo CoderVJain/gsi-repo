@@ -31,21 +31,51 @@
 
 
 .title {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    color: white;
-    font-size: 22.112px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: white;
+  font-size: 22.112px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .description {
-    color: #A3A3A3;
-    text-align: center;
-    font-family: Inter;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
-    /* 150% */
+  color: #A3A3A3;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  /* 150% */
+}
+
+.inner-div {
+  display: flex;
+  width: 236.617px;
+  padding: 25.504px 22.67px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 22.67px;
+  border-radius: 15.665px;
+  background: radial-gradient(83.56% 73.09% at 32.54% 0%, #262626 0%, #141414 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.upper-div {
+  border-radius: 22.112px;
+  background: radial-gradient(50.51% 53.12% at 82.21% 11.15%, #262626 0%, #141414 100%);
+}
+
+.bottom-div {
+  border-radius: 22.112px;
+  background: radial-gradient(50.51% 53.12% at 82.21% 11.15%, #262626 0%, #141414 100%);
+}
+
+.cta-button {
+  border-radius: 21.31px;
+border: 1.776px solid #FF521C;
+background: radial-gradient(37.68% 85.68% at 50.15% 6.82%, #4D2F26 0%, #070707 100%);
 }
