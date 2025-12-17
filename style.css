@@ -135,3 +135,92 @@
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
+
+.btn-project {
+  border-radius: 23.57px;
+  border: 1.964px solid #FF521C;
+  background: radial-gradient(37.68% 85.68% at 50.15% 6.82%, #4D2F26 0%, #070707 100%);
+  color: #ffffff;
+
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 6.94px 36.435px;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+
+
+.section-label {
+  color: #6c757d;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+/* Video Placeholder Styling */
+.video-placeholder {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  width: 100%;
+  aspect-ratio: 16/9;
+  /* Or 4/3 based on preference, 1:1 in your image looks closer to 4:3 or square */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  min-height: 300px;
+}
+
+.highlight-text {
+  color: #FF521C;
+}
+
+h2,
+.product-card h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.cus-btn {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  padding: 6.275px 17.255px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 21.31px;
+  background: radial-gradient(37.68% 85.68% at 50.15% 6.82%, #4D2F26 0%, #070707 100%);
+  color: #D2D0D0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+
+
+.cus-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1.776px solid #FF521C;
+  pointer-events: none;
+  -webkit-mask: linear-gradient(to bottom, white 0%, white 45%, transparent 100%);
+  mask: linear-gradient(to bottom, white 0%, white 45%, transparent 100%);
+  opacity: 1;
+  transition: border-color 0.3s ease;
+}
+
+.cus-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 18px rgba(255, 82, 28, 0.45);
+  color: #fff;
+}
+
+.cus-btn:hover::before {
+  border-color: #ff6a39;
+}
