@@ -1,0 +1,711 @@
+/* Theme Variables */
+:root {
+    --bg-body: #FFF0E6;
+    --bg-content: #ffffff;
+    --text-main: #333333;
+    --text-muted: #49454F;
+    --sidebar-bg: #FFEAE3;
+    --sidebar-active: #553D34;
+    --sidebar-active-text: #ffffff;
+    --accent-color: #FF5722;
+    --border-color: #5C4079;
+    --table-header-bg: #FAD4C8;
+    --Primary-select: #FFD9CC;
+}
+
+/* Dark Theme Overrides - Chocolate Brown */
+[data-theme="dark"] {
+    --bg-body: #1E1715;
+    /* Very dark brown/black */
+    --bg-content: #2C2420;
+    /* Chocolate Brown Card */
+    --text-main: #EAE0DA;
+    /* Light beige text */
+    --text-muted: #BCAAA4;
+    --sidebar-bg: #302B29;
+    /* Sidebar dark brown */
+    --sidebar-active: #553D34;
+    /* Active item brown */
+    --sidebar-active-text: #ffffff;
+    /* Orange accent text */
+    --accent-color: #FF5722;
+    --border-color: #CAC4D0;
+    --table-header-bg: #3E322C;
+    --Dark-card-secondary: #4E4745;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.text-light-gray {
+    color: #626262;
+}
+
+[data-theme="dark"] .text-light-gray {
+    color: #D9D9D9;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Layout */
+.wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    /* Changed from height to min-height */
+    align-items: stretch;
+}
+
+/* Sidebar */
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background-color: var(--sidebar-bg);
+    color: var(--text-main);
+    transition: all 0.3s;
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
+    position: fixed;
+    border-right: 1px solid var(--border-color);
+    z-index: 1000;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 64px;
+}
+
+.brand-logo-img {
+    height: 40px;
+    width: auto;
+}
+
+
+
+/* Collapsed icon logo */
+.logo-icon {
+    display: none;
+    width: 34px;
+    height: auto;
+}
+
+/* Logo Theme Switching */
+html[data-theme="light"] .logo-dark {
+    display: none;
+}
+
+html[data-theme="light"] .logo-light {
+    display: block;
+}
+
+html[data-theme="dark"] .logo-light {
+    display: none;
+}
+
+html[data-theme="dark"] .logo-dark {
+    display: block;
+}
+
+/* SVG Icons */
+.icon-svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.icon-navbar {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* Content Area */
+#content {
+    flex: 1;
+    /* Automatically fills remaining space */
+    width: 100%;
+    margin-left: 250px;
+    padding: 20px;
+    background-color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+[data-theme="dark"] #content {
+    background: #1A1A1A;
+    min-height: 100vh;
+}
+
+
+#content.active {
+    margin-left: 0;
+}
+
+/* Navigation List */
+.components {
+    padding: 0;
+    list-style: none;
+}
+
+.components li {
+    margin-bottom: 5px;
+}
+
+.nav-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 20px 0 10px 0;
+    padding-top: 15px;
+    font-weight: 600;
+    border-top: 1px solid var(--border-color);
+    /* Subtle separator */
+}
+
+[data-theme="dark"] .nav-category {
+    border-top: 1px solid var(--border-color);
+}
+
+.nav-link {
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* More gap for icon */
+    padding: 12px 20px;
+    border-radius: 40px;
+    /* Pill shape always defined for hover effect too */
+    text-decoration: none;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--accent-color);
+}
+
+.nav-link.active {
+    background-color: var(--sidebar-active);
+    color: var(--sidebar-active-text);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+}
+
+[data-theme="dark"] .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Subtle white hover in dark */
+    color: #fff;
+}
+
+/* Responsive Sidebar Toggle */
+@media (max-width: 992px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+
+    #sidebar.active {
+        margin-left: 0;
+    }
+
+    #content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #content.active {
+        margin-left: 0;
+    }
+}
+
+/* Top Navbar */
+.top-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    padding: 20px;
+}
+
+.search-bar {
+    position: relative;
+    width: 300px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-content);
+    color: var(--text-main);
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+
+
+/* View Containers */
+.view-container {
+
+    border-radius: 24px;
+    /* As requested */
+    overflow: hidden;
+    /* Clips the header to the border-radius */
+
+    border-radius: 24px;
+    background: var(--Light-card-bg);
+    padding: 20px;
+    /* Remove internal padding so header touches edges */
+}
+
+#invoice-header {
+    padding: 20px;
+}
+
+
+[data-theme="dark"] .view-container {
+    background: var(--Dark-card-bg);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.table-wrapper {
+    border-radius: 24px;
+    background: #FFF3EF;
+    overflow-x: auto;
+    /* Enables horizontal scroll */
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+
+}
+
+[data-theme="dark"] .table-wrapper {
+    background: #302B29;
+}
+
+.custom-table {
+    width: 100%;
+    /* Prevents the table from squishing too much on mobile */
+    min-width: 800px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: transparent;
+}
+
+.custom-table thead {
+    background: var(--Primary-select);
+}
+
+[data-theme="dark"] .custom-table thead {
+    background: var(--Dark-card-secondary);
+}
+
+.custom-table thead {
+    background: var(--Primary-select);
+}
+
+
+
+
+[data-theme="dark"] .custom-table tbody {
+    background-color: #302B29;
+}
+
+.custom-table th {
+    padding: 20px;
+    font-weight: 500;
+    border: none;
+    color: var(--text-main);
+    text-align: center;
+}
+
+/* Table Body Row Alignment */
+.custom-table tbody td {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Remove border from the last row to match the clean look */
+.custom-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+
+
+
+.status-badge {
+    background: transparent;
+    border: 1px solid var(--text-muted);
+    border-radius: 10px;
+    padding: 5px 15px;
+    font-size: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-main);
+    cursor: pointer;
+}
+
+/* Base Action Button Reset */
+.action-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-view-arrow {
+    background-color: #FF7043 !important;
+    /* Brighter orange from image */
+    color: white !important;
+
+    /* It is a circle in the UI */
+}
+
+.btn-delete-pink {
+    background-color: #F8BBD0 !important;
+    /* Soft pink */
+    color: #E91E63 !important;
+    /* Deep pink icon */
+}
+
+/* Ensure SVGs inside buttons scale correctly */
+.action-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Form Styles - Generate Invoice */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #626262;
+}
+
+[data-theme="dark"] .form-label {
+    color: #D9D9D9;
+}
+
+.form-control-custom {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #626262;
+}
+
+[data-theme="dark"] .form-control-custom {
+    background-color: #1A1A1A;
+    color: #D9D9D9;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-col {
+    flex: 1;
+}
+
+/* Button Primary - Outline Style (No Orange Fill) */
+.btn-primary-custom {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.btn-primary-custom:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-secondary-custom {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btn-cancel-custom {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+/* Solid Orange Button (Generate Invoice) */
+.btn-primary-solid {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    /* Wider padding */
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.btn-primary-solid:hover {
+    background-color: #E64A19;
+    /* Darker orange */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(255, 87, 34, 0.3);
+}
+
+/* Cancel Button (Grey Outline Pill) */
+.btn-cancel-pill {
+
+    color: var(--text-main);
+    border: 1px solid #ccc;
+    padding: 10px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.btn-cancel-pill:hover {
+    border-color: #999;
+    background-color: #f9f9f9;
+}
+
+/* Red Cross Action Button */
+.btn-action-cross {
+    background: none;
+    border: none;
+    color: #D32F2F;
+    /* Red */
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-action-cross:hover {
+    color: #B71C1C;
+    transform: scale(1.1);
+}
+
+/* Small Add Button (Table Footer) */
+.btn-add-small {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid #79747E;
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-add-small:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.input-plain {
+    border: none;
+    background: transparent;
+    width: 100%;
+    color: var(--text-main);
+}
+
+.input-plain:focus {
+    outline: none;
+}
+
+.spacer-lg {
+    height: 100px;
+}
+
+.content-view-container {
+    background-color: #FFF3EF;
+    border-radius: 28px;
+    padding: 0;
+    overflow: hidden;
+}
+
+[data-theme="dark"] .content-view-container {
+    background-color: #302B29;
+}
+
+
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Utility */
+.text-danger {
+    color: #dc3545;
+}
+
+.text-orange {
+    color: #FF5722;
+}
+
+/* Global Scrollbar customization (Main Page) */
+#sidebar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+#sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+#sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+
+/* Sidebar Collapsed Mode (Icon Only) */
+/* Sidebar Collapsed State */
+#sidebar.collapsed {
+    min-width: 80px;
+    max-width: 80px;
+    padding: 20px 10px;
+}
+
+/* Hide text labels and categories when collapsed */
+#sidebar.collapsed .nav-link span,
+#sidebar.collapsed .nav-category,
+#sidebar.collapsed .brand-logo-img {
+    display: none !important;
+}
+
+/* Show the 'GS' text logo placeholder when collapsed */
+
+
+#sidebar.collapsed .logo-full {
+    display: none;
+}
+
+#sidebar.collapsed .logo-icon {
+    display: block;
+}
+
+/* Center icons in collapsed mode */
+#sidebar.collapsed .nav-link {
+    justify-content: center;
+    padding: 15px 0;
+}
+
+#sidebar.collapsed .icon-svg {
+    width: 24px;
+    height: 24px;
+    margin: 0;
+}
+
+/* Adjust main content margin when sidebar is small */
+#content.collapsed-mode {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+}
+
+@media (max-width: 992px) {
+    #sidebar.collapsed {
+        margin-left: -80px;
+    }
+
+    #sidebar.collapsed.active {
+        margin-left: 0;
+    }
+
+    #content.collapsed-mode {
+        margin-left: 0;
+        width: 100%;
+    }
+}
