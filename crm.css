@@ -19,7 +19,7 @@
     /* Very dark brown/black */
     --bg-content: #2C2420;
     /* Chocolate Brown Card */
-    --text-main: #EAE0DA;
+    --text-main: #CECECE;
     /* Light beige text */
     --text-muted: #BCAAA4;
     --sidebar-bg: #302B29;
@@ -531,19 +531,21 @@ html[data-theme="dark"] .logo-dark {
 .btn-cancel-pill {
 
     color: var(--text-main);
-    border: 1px solid #ccc;
+    border: 1px solid var(--text-main);
     padding: 10px 40px;
     border-radius: 30px;
     cursor: pointer;
     transition: all 0.3s;
     font-weight: 600;
     font-size: 1rem;
+    background: #ffffff;
 }
 
-.btn-cancel-pill:hover {
-    border-color: #999;
-    background-color: #f9f9f9;
+[data-theme="dark"] .btn-cancel-pill {
+    background: #1A1A1A;
 }
+
+
 
 /* Red Cross Action Button */
 .btn-action-cross {
